@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+     
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <title>Question 9</title>
+
+    <meta charset="utf-8" />
+  </head>
+  <body>
+
+    <audio id="clickSound" src="./assets/click.wav" preload="auto"></audio>
+    <audio id="correctSound" src="./assets/correctSound.wav" preload="auto"></audio>
+    <audio id="wrongSound" src="./assets/wrongSound.wav" preload="auto"></audio>
+    <div><h1 id = "counter">30</h1></div>
+    <div id = "question">
+       <h1>Q9.</h1>
+       <h1>You’re getting rid of old glasses and ceramic kitchenwares. Do they go into the recycling bin?</h1>
+    </div>
+    <div id = "item">
+        <label class="container">Yes
+            <input type="radio" checked="checked" name="radio" value="false" >
+            <span class="checkmark"></span>
+        </label>
+        <br>
+        <label class="container">No
+            <input type="radio" name="radio" value="right">
+            <span class="checkmark"></span>
+        </label>
+        <br>
+        <br>
+        <input type="submit" value="Submit" onmousedown = "document.getElementById('clickSound').play();" onclick = save_data()>
+    </div>
+
+    <div id = "score">
+        <h2 >Total Score: </h2>
+        <h2 id = "score_number"></h2>
+    </div>
+   
+    <script>
+        //This part functions as the time counter for the quiz
+        var counter = 30; //Total time is 30 seconds
+        setInterval(updateTimer, 1000); //Set a interval for updating the remain time
+        //This function is called every 1 second
+        function updateTimer(){
+            //If reach the time, pass to the next question(page)
+            if(counter == 0){
+                alert("Time out!");
+                window.location.href = 'page11.html'; //herf to the next page
+            }
+            counter -= 1; //Update the counter
+            document.getElementById('counter').innerHTML = counter; //Set the counter value to the html element  
+        }
+        document.getElementById('score_number').innerHTML = localStorage.getItem("score");
+        function save_data() {
+            var value =  document.querySelector('input[name="radio"]:checked').value;
+            if(value == "right"){
+                var score = parseInt(localStorage.getItem("score")); 
+                score += 2;
+                localStorage.setItem("score", score); 
+                document.getElementById('correctSound').play();  //Play the correct sound
+                alert("Correct!");
+            }else{
+                document.getElementById('wrongSound').play();  //Play the wrong sound
+                alert("Wrong!");              
+            }
+            window.location.href = 'page11.html'; //Go to page11.html
+        }
+    </script>
+
+    <div id="copy_right">
+      <p>©copyright 2022. Sophie Jiang  <br />All rights reserved.</p>
+    </div>
+  </body>
+</html>

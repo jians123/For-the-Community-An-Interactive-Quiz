@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+     
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <title>Personal ID</title>
+
+    <meta charset="utf-8" />
+  </head>
+  <body>
+
+    <audio id="clickSound" src="./assets/click.wav" preload="auto"></audio>
+    
+    <div id = "title">
+      <h1>Please Fill In Your ID</h1>
+    </div>
+    
+    <div id = "form">
+        <label for="fname" >Name:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="fage">Age:</label>
+        <input type="text" id="fage" name="fage"><br><br><br><br>
+        <input type="submit" value="Submit" onmousedown = "document.getElementById('clickSound').play();" onclick = save_data()>
+    </div>
+
+    <script>
+      //This function store the user name and age in the local storage.
+      function save_data() {
+        //Get the name value from the input text
+        var data = document.getElementById("fname");
+        var name = data.value;
+        //Store it to the localStorage
+        localStorage.setItem("user_name", name); 
+         //Get the age value from the input text
+        data = document.getElementById("fage");
+        var age = data.value;
+        //Store it to the localStorage
+        localStorage.setItem("user_age", age); 
+        alert("Submit successful!");
+        //Refresh the score inside the localStorage to 0
+        localStorage.setItem("score", "0"); 
+        window.location.href = 'page2.html'; //Go to the page2.html
+      }
+    </script>
+
+    <div>
+      <img id = "bgImage" src="./assets/bg.png" alt="5"/>
+    </div>
+    <div id="copy_right">
+      <p>©copyright 2022. Sophie Jiang  <br />All rights reserved.</p>
+    </div>
+  </body>
+</html>
