@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One&family=Space+Mono&display=swap" rel="stylesheet">
     
     <title>Question 8</title>
     
@@ -21,22 +21,13 @@
     <audio id="wrongSound" src="./assets/wrongSound.wav" preload="auto"></audio>
     <div><h1 id = "counter">30</h1></div>
     <div id = "question">
-       <h1>Q8.</h1>
-       <h1>You’ve been doing shopping for clothes. Can you recycle the shopping bags?</h1>
+       <h3>Q8.</h3>
+       <h3>You’ve been doing shopping for clothes. Can you recycle the shopping bags?</h3>
     </div>
-    <div id = "item">
-        <label class="container">Yes
-            <input type="radio" checked="checked" name="radio" value="right" >
-            <span class="checkmark"></span>
-        </label>
-        <br>
-        <label class="container">No
-            <input type="radio" name="radio" value="false">
-            <span class="checkmark"></span>
-        </label>
-        <br>
-        <br>
-        <input type="submit" value="Submit" onmousedown = "document.getElementById('clickSound').play();" onclick = save_data()>
+    <div id = "boolform">
+      <label for="fbool" >Yes or No:</label>
+      <input type="text" id="fbool" name="fbool"><br><br><br><br><br><br>
+      <input type="submit" value="Submit" onmousedown = "document.getElementById('clickSound').play();" onclick = save_data()>
     </div>
 
     <div id = "score">
@@ -52,7 +43,7 @@
         function updateTimer(){
             //If reach the time, pass to the next question(page)
             if(counter == 0){
-                alert("Time out!");
+                alert("Time out!\nCorrect answer: Yes");
                 window.location.href = 'page10.html'; //herf to the next page
             }
             counter -= 1; //Update the counter
@@ -61,8 +52,9 @@
 
         document.getElementById('score_number').innerHTML = localStorage.getItem("score");
         function save_data() {
-            var value =  document.querySelector('input[name="radio"]:checked').value;
-            if(value == "right"){
+            var data = document.getElementById("fbool");  //Get the input value from fbool element
+            var value = data.value;  //Get the input value
+            if(value == "yes" || "Yes"){
                 var score = parseInt(localStorage.getItem("score")); 
                 score += 2;
                 localStorage.setItem("score", score); 
@@ -70,7 +62,7 @@
                 alert("Correct!");
             }else{
                 document.getElementById('wrongSound').play();  //Play the wrong sound
-                alert("Wrong!");              
+                alert("Wrong!\nCorrect answer: Yes");              
             }
             window.location.href = 'page10.html'; //Go to page10.html
         }

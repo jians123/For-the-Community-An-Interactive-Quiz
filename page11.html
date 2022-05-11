@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One&family=Space+Mono&display=swap" rel="stylesheet">
     
     <title>Question 10</title>
 
@@ -20,8 +20,8 @@
     <audio id="wrongSound" src="./assets/wrongSound.wav" preload="auto"></audio>
 
     <div id = "question">
-       <h1>Q10.</h1>
-       <h1>How long does it take to degrade a battery?</h1>
+       <h3>Q10.</h3>
+       <h3>How long does it take to degrade a battery?</h3>
     </div>
     <div id = "item">
         <div class="slidecontainer">
@@ -46,7 +46,7 @@
         function updateTimer(){
             //If reach the time, pass to the next question(page)
             if(counter == 0){
-                alert("Time out!");
+                alert("Time out!\nCorrect answer: More than 100 years for metal part of battery to decompose");
                 window.location.href = 'page11.html'; //herf to the next page
             }
             counter -= 1; //Update the counter
@@ -73,7 +73,7 @@
                 alert("Correct!");
             }else{
                 document.getElementById('wrongSound').play();  //Play the wrong sound
-                alert("Wrong!");              
+                alert("Wrong!\nCorrect answer: More than 100 years for metal part of battery to decompose");              
             }
             window.location.href = 'end.html'; //Go to end.html
         }

@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One&family=Space+Mono&display=swap" rel="stylesheet">
     
     <title>Question 3</title>
 
@@ -20,8 +20,8 @@
     <audio id="wrongSound" src="./assets/wrongSound.wav" preload="auto"></audio>
     <div><h1 id = "counter">30</h1></div>
     <div id = "question">
-       <h1>Q3.</h1>
-       <h1>Once recyclables are collected and transported to the recycling sorting facility, they are:</h1>
+       <h3>Q3.</h3>
+       <h3>Once recyclables are collected and transported to the recycling sorting facility, they are:</h3>
     </div>
     <div id = "item">
         <label class="container">Hand-sorted to remove problem materials
@@ -62,7 +62,7 @@
         function updateTimer(){
             //If reach the time, pass to the next question(page)
             if(counter == 0){
-                alert("Time out!");
+                alert("Time out!\nCorrect answer: ALL of the above");
                 window.location.href = 'page5.html'; //herf to the next page
             }
             counter -= 1; //Update the counter
@@ -82,7 +82,7 @@
                 alert("Correct!");
             }else{
                 document.getElementById('wrongSound').play();  //Play the wrong sound
-                alert("Wrong!");              
+                alert("Wrong!\nCorrect answer: ALL of the above");              
             }
           window.location.href = 'page5.html'; //Go to the page5.html
       }
