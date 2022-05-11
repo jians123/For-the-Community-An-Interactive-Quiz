@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One&family=Space+Mono&display=swap" rel="stylesheet">
     
     <title>Question 1</title>
 
@@ -22,8 +22,8 @@
 
     <div><h1 id = "counter">30</h1></div>
     <div id = "question">
-       <h1>Q1.</h1>
-       <h1>[Multiple choices] <br>Which of the following plastic bottles are recyclable?</h1>
+       <h3>Q1.</h3>
+       <h3>[Multiple choices] <br>Which of the following plastic bottles are recyclable?</h3>
     </div>
     <div id = "item">
         <label class="container">Shampoo bottle
@@ -63,7 +63,7 @@
         function updateTimer(){
             //If reach the time, pass to the next question(page)
             if(counter == 0){
-                alert("Time out!");
+                alert("Time out!\nCorrect answer: Shampoo bottle and Mineral water bottle");
                 window.location.href = 'page3.html'; //herf to the next page
             }
             counter -= 1; //Update the counter
@@ -96,7 +96,7 @@
                 alert("Correct!");
             }else{
                 document.getElementById('wrongSound').play(); 
-                alert("Wrong!");
+                alert("Wrong!\nCorrect answer: Shampoo bottle and Mineral water bottle");
             }
             window.location.href = 'page3.html'; //Go to the page3.html
         }
