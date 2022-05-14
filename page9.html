@@ -54,7 +54,7 @@
         function save_data() {
             var data = document.getElementById("fbool");  //Get the input value from fbool element
             var value = data.value;  //Get the input value
-            if(value == "yes" || "Yes"){
+            if(value == "yes" || value == "Yes"){
                 var score = parseInt(localStorage.getItem("score")); 
                 score += 2;
                 localStorage.setItem("score", score); 
